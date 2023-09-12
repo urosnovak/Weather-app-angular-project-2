@@ -1,0 +1,131 @@
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf='weatherData'>
+  <div class="topInfo">
+  <img src="../assets/vruce.png" *ngIf='weatherData.main.temp > 15'>
+  <img src="../assets/hladno1.png" *ngIf='weatherData.main.temp <= 15' >
+  
+  <div class="infoWeather">
+  <div class="location">{{ weatherData.name }}</div>
+  <div class="temperature">{{ weatherData.main.temp | number: '1.0-0' }}°</div> 
+  </div>
+  
+  </div>
+  <div class="bottomInfo">
+   <div class="plusInfo">
+    Details
+   </div>
+   <div class="plusInfoContainer">
+    <div class="infoBlock">
+      <div class="plusInfoBlock">
+        <img src="../assets/hladno.png">
+        <span>min</span>
+      </div>
+      <div class="plusInfoBlockValue">
+        {{ weatherData.main.temp_min | number: '1.0-0'}}°C
+      </div>
+    </div>
+  
+    <div class="infoBlock">
+      <div class="plusInfoBlock">
+        <img src="../assets/toplo.png">
+        <span>max</span>
+      </div>
+      <div class="plusInfoBlockValue">
+        {{ weatherData.main.temp_max | number: '1.0-0' }}°C
+      </div>
+    </div>
+  
+    <div class="infoBlock">
+      <div class="plusInfoBlock">
+        <img src="../assets/vlaznost.png">
+        <span>humidity</span>
+      </div>
+      <div class="plusInfoBlockValue">
+        {{ weatherData.main.humidity | number: '1.0-0' }}%
+      </div>
+    </div>
+  
+    <div class="infoBlock">
+      <div class="plusInfoBlock">
+        <img src="../assets/315809_cloud_wind_icon.png">
+        <span>Wind</span>
+      </div>
+      <div class="plusInfoBlockValue">
+        {{ weatherData.wind.speed | number: '1.0-0'}}km/h
+      </div>
+    </div>
+   </div>
+  
+  </div>
+  </div>
+
+
+
+<!-- <div class="container">
+
+<div class="topInfo">
+<img src="../assets/vruce.png" *ngIf="14 > 15">
+<img src="../assets/hladno1.png" *ngIf="14 <= 15" >
+
+<div class="infoWeather">
+<div class="location">Belgrade</div>
+<div class="temperature">{{ 14.40 | number: '1.0-0' }}°</div>  alt i 0176-->
+<!-- </div>
+
+</div>
+<div class="bottomInfo">
+ <div class="plusInfo">
+  Details
+ </div>
+ <div class="plusInfoContainer">
+  <div class="infoBlock">
+    <div class="plusInfoBlock">
+      <img src="../assets/hladno.png">
+      <span>min</span>
+    </div>
+    <div class="plusInfoBlockValue">
+      10°C
+    </div>
+  </div>
+
+  <div class="infoBlock">
+    <div class="plusInfoBlock">
+      <img src="../assets/toplo.png">
+      <span>max</span>
+    </div>
+    <div class="plusInfoBlockValue">
+      20°C
+    </div>
+  </div>
+
+  <div class="infoBlock">
+    <div class="plusInfoBlock">
+      <img src="../assets/vlaznost.png">
+      <span>humidity</span>
+    </div>
+    <div class="plusInfoBlockValue">
+      77%
+    </div>
+  </div>
+
+  <div class="infoBlock">
+    <div class="plusInfoBlock">
+      <img src="../assets/315809_cloud_wind_icon.png">
+      <span>Wind</span>
+    </div>
+    <div class="plusInfoBlockValue">
+      11 km/h
+    </div>
+  </div>
+ </div>
+
+</div>
+</div> --> 
+
+
+<router-outlet></router-outlet>
